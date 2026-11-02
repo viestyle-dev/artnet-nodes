@@ -1,0 +1,38 @@
+[project]
+name = "artnet-nodes"
+version = "0.3.0"
+description = "A nonoha-engine plugin nodes for Art-Net DMX512 lighting control protocol, providing real-time communication between nonoha-engine and professional lighting equipment via Ethernet networks."
+readme = "README.md"
+authors = [{name = "VIE, Inc."}]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = ["nonoha", "dataflow", "node-graph", "art-net", "artnet", "dmx", "dmx512", "lighting"]
+requires-python = ">=3.11"
+dependencies = ["numpy"]
+
+[project.urls]
+Homepage   = "https://github.com/viestyle-dev/artnet-nodes"
+Repository = "https://github.com/viestyle-dev/artnet-nodes"
+Issues     = "https://github.com/viestyle-dev/artnet-nodes/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "nonoha-core @ git+https://github.com/viestyle-dev/nonoha-core.git",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["artnet_nodes"]
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.nonoha-hub]
+engine-compatibility = [">=0.10.0", "<0.11.0"]
